@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hostel Billing Application</title>
+
+
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"> 
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+  body {
+    background-color:#a4bcea;
+  }
+  </style>
+
+</head>
+<body>
+  <div class="container" style="text-align: right; margin-top: 20px;">
+<div class="row">
+  <div class="col-md-12">
+    <a href="home.html" class="btn btn-primary">Home</a>
+    <a href="index.html" class="btn btn-primary">Details_Page</a>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </div>
+</div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+
+  <div class="row">
+  <div class="col-md-3">
+  </div>
+    
+  <div class="col-md-6 main" style="background-color: rgb(184, 191, 193);">
+      
+    <form action="http://localhost:3000/sign_up" method="post" onsubmit="return validateForm()">         
+      <h1> HOSTEL BILLING APPLICATION </h1>
+          
+      <input class="box" type="text" name="name" id="name"
+      placeholder="Name" required /><br>
+          
+      <input class="box" type="text" name="branch" id="branch"
+      placeholder="Branch" required /><br>
+          
+      <!-- <input class="box" type="text" name="year"
+      id="year" placeholder="Year" required/><br> -->
+      <style>
+        select {
+          font-size: 20px; 
+          padding: 12px 20px; 
+          width: 100%; 
+        }
+        select option {
+          font-size: 14px;
+        }
+      </style>
+       
+      <label for="year"></label>
+      <select class="box" name="year" id="year" required>
+        <option value="" disabled selected>Select Year</option>
+        <option value="1">Year 1</option>
+        <option value="2">Year 2</option>
+        <option value="3">Year 3</option>
+        <option value="4">Year 4</option>
+      </select>
+      <br>
+      <br>
+      <input class="box" type="text" name="month" id="month"
+      placeholder="Month" required/><br>
+      <input class="box" type="text" name="amount" id="amount"
+      placeholder="Amount" required/><br>
+      <div id="nameError" class="error"></div>
+      <div id="amountError" class="error"></div>
+      <br>
+      <input type="submit" id="submitDetails" name="submitDetails" value="Submit" /><br>
+      <input type="reset" id="resetForm" value="Reset" /><br>
+      
+    </form>
+      
+  </div> 
+    
+  <div class="col-md-3">
+    <a href="help.html" class="btn btn-primary help-button">?: Help_me</a>
+  </div>
+    
+  </div>
+</div>
+
+<script>
+function validateForm() {
+  var name = document.getElementById("name").value;
+  var amount = document.getElementById("amount").value;
+	var nameError = document.getElementById("nameError");
+	var amountError = document.getElementById("amountError");
+			
+	nameError.innerHTML = "";
+	amountError.innerHTML = "";
+
+	if (name.trim() === "") {
+		nameError.innerHTML = "Name is required";
+		return false;
+	}
+
+	if (isNaN(amount) || amount <= 0) {
+		amountError.innerHTML = "<span style='color:red'>Amount must be a positive number</span>";
+		return false;
+	}
+
+	return true;
+}
+</script>
+</body>
+</html>
