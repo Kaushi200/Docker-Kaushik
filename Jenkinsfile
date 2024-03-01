@@ -13,11 +13,5 @@ pipeline {
         sleep 10 // Wait for the server to start
       }
     }
-
-    stage('Stop Server') {
-      steps {
-        bat 'taskkill /F /IM node.exe'
-      }
-    }
   }
 }
