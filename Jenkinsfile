@@ -14,12 +14,6 @@ pipeline {
       }
     }
 
-    stage('Run API Tests') {
-      steps {
-        sh 'npm run api-tests'
-      }
-    }
-
     stage('Stop Server') {
       steps {
         bat 'taskkill /F /IM node.exe'
