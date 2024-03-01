@@ -17,7 +17,7 @@ pipeline {
 
     stage('Start Server') {
       steps {
-        sh 'node index.js &'
+        bat 'start node index.js'
         sleep 10 // Wait for the server to start
       }
     }
@@ -30,7 +30,7 @@ pipeline {
 
     stage('Stop Server') {
       steps {
-        sh 'pkill -f "node index.js"'
+        bat 'taskkill /F /IM node.exe'
       }
     }
   }
